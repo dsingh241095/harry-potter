@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="backbutton">
+        <button  (click)="backClicked()"><img src="./../../../assets/backtoHome.jpg" width="20px"/>
+            Back</button>
+    </div>
+    <h2>
+        {{movieDetails.title}}
+    </h2>
+    <div class="parentDiv">
+        <div class="image">
+            <img [src]="movieDetails.poster" height="300px" width="200px"
+                [title]="movieDetails.title">
+        </div>
+        <div class="content">
+            <span style="font-weight: bold;">Summary:</span>
+            <span>{{movieDetails.summary}}</span>
+        </div>
+    </div>
+    <div class="movie-details">
+        <h3 style="text-align: center;">
+            Details
+        </h3>
+        <table style="width:100%" cellPadding="10px">
+            <tr>
+                <td class="align-right" style="width:14%">
+                    Box office
+                </td>
+                <td>
+                    {{movieDetails.box_office | currency}}
+                </td>
+            
+            </tr>
+            <tr>
+                <td class="align-right">
+                    Budget
+                </td>
+                <td>
+                    {{movieDetails.budget | currency}}
+                </td>
+            </tr>
+            <tr>
+                <td class="align-right">
+                    Duration
+                </td>
+                <td>
+                    {{movieDetails.duration | durationPipe}}
+                </td>
+            </tr>
+            <tr>
+                <td class="align-right">
+                    Producers
+                </td>
+                <td>
+                    {{movieDetails.producers}}
+                </td>
+            </tr>
+            <tr>
+                <td class="align-right">
+                    Cinematographers
+                </td>
+                <td>
+                    {{movieDetails.cinematographers}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

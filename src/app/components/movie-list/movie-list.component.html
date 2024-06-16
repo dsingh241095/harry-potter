@@ -1,0 +1,21 @@
+<div class="container">
+    <app-filters (filterTitleString)="filterTitleStringEvent($event)"
+    (releaseYearString)="filterReleaseYearEvent($event)"></app-filters>
+@for (list of filteredMovieList; track list?.id) {
+<ul>
+    <li>
+        <div id="parent">
+            <div id="left">
+                <h6>{{list.title}}</h6>
+                <span>Release Date: {{list.release_date}}</span>
+                <span>Budget: {{list.budget | currency}}</span>
+                <span>Duration: {{list.duration | durationPipe}}</span>
+            </div>
+            <div id="right">
+                <button type="button" class="btn btn-primary" routerLink="/movies/{{list.id}}">Details</button>
+            </div>
+        </div>
+    </li>
+</ul>
+}
+</div>

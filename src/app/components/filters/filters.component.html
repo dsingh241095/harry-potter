@@ -1,0 +1,17 @@
+<div class="filter-padding">
+    <h5>Filters</h5>
+    <div class="parentDiv">
+        <div class="title">
+            <label for="title" class="right-padding">Title</label>
+            <input type="text" #title 
+            (keyup)="getTitleFilterString(title.value)"
+            name="title" />
+        </div>
+        <div class="release">
+            <label for="releaseYear" class="right-padding">Release Year</label>
+            <input type="number" #releaseYear
+            (keyup)="getReleaseYearFilterString(releaseYear.value)"
+            name="releaseYear" />
+        </div>
+    </div>
+</div>
