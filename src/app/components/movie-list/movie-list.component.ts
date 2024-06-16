@@ -55,12 +55,15 @@ export class MovieListComponent implements OnInit, OnDestroy {
     if(this.enteredTitle==='' && this.enteredreleaseYear===''){
       this.filteredMovieList =  this.movieList;
     } else if(this.enteredTitle!=='' && this.enteredreleaseYear===''){
-      this.filteredMovieList = this.movieList.filter(x=> x.title.toLocaleLowerCase().indexOf(ev.toLocaleLowerCase()) !==-1);
-      this.titleFilteredMovieList = this.filteredMovieList;
+      this.filteredMovieList = this.movieList.filter(x=> x.title.toLocaleLowerCase().indexOf(this.enteredTitle.toLocaleLowerCase()) !==-1);
+    }
+    else if(this.enteredTitle==='' && this.enteredreleaseYear!==''){
+      this.filteredMovieList = this.movieList.filter(x=> x.release_date.toLocaleLowerCase().indexOf(this.enteredreleaseYear.toLocaleLowerCase()) !==-1);
     }
     else {
-      this.filteredMovieList = this.releaseyearFilteredMovieList.filter(x=> x.title.toLocaleLowerCase().indexOf(ev.toLocaleLowerCase()) !==-1);
-      this.titleFilteredMovieList = this.filteredMovieList;
+      this.filteredMovieList = this.movieList.filter(x=> 
+        (x.title.toLocaleLowerCase().indexOf(this.enteredTitle.toLocaleLowerCase()) !==-1) && (x.release_date.toLocaleLowerCase().indexOf(this.enteredreleaseYear.toLocaleLowerCase()) !==-1)
+    );
     }
     
   }
@@ -70,12 +73,15 @@ export class MovieListComponent implements OnInit, OnDestroy {
     if(this.enteredreleaseYear==='' && this.enteredTitle==='') {
       this.filteredMovieList =  this.movieList;
     } else if(this.enteredreleaseYear!=='' && this.enteredTitle===''){
-      this.filteredMovieList = this.movieList.filter(x=> x.release_date.toLocaleLowerCase().indexOf(ev.toLocaleLowerCase()) !==-1);
-      this.releaseyearFilteredMovieList = this.filteredMovieList;
+      this.filteredMovieList = this.movieList.filter(x=> x.release_date.toLocaleLowerCase().indexOf(this.enteredreleaseYear.toLocaleLowerCase()) !==-1);
+    }
+    else if(this.enteredreleaseYear==='' && this.enteredTitle!==''){
+      this.filteredMovieList = this.movieList.filter(x=> x.title.toLocaleLowerCase().indexOf(this.enteredTitle.toLocaleLowerCase()) !==-1);
     }
     else {
-      this.filteredMovieList = this.titleFilteredMovieList.filter(x=> x.release_date.toLocaleLowerCase().indexOf(ev.toLocaleLowerCase()) !==-1);
-      this.releaseyearFilteredMovieList = this.filteredMovieList;
+      this.filteredMovieList = this.movieList.filter(x=> 
+        (x.title.toLocaleLowerCase().indexOf(this.enteredTitle.toLocaleLowerCase()) !==-1) && (x.release_date.toLocaleLowerCase().indexOf(this.enteredreleaseYear.toLocaleLowerCase()) !==-1)
+    );
     }
 
   }
